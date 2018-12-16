@@ -5,7 +5,8 @@ public class Customer {
     private int id;
     private String name;
     static membership membership;
-     enum membership {
+
+    enum membership {
         Gold, Silver, Nomembership
     }
 
@@ -31,13 +32,11 @@ public class Customer {
         this.name = name;
     }
 
-    public void setMembership(membership membership)
-    {
-        this.membership=membership;
+    public void setMembership(membership membership) {
+        this.membership = membership;
     }
 
-    public membership getMembership()
-    {
+    public membership getMembership() {
         return membership;
     }
 }

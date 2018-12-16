@@ -24,4 +24,9 @@ public class Basket {
     public void setCustomer(Shop.Customer customer) {
         this.customer = customer;
     }
+
+    public void addItemInBasket(double priceOfProduct,int quantity) {
+        totalPrice += priceOfProduct;
+
+    }
 }
