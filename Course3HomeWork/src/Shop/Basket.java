@@ -4,7 +4,7 @@ public class Basket {
     double totalPrice;
     Customer customer;
 
-    public Basket(double totalPrice, Shop.Customer customer) {
+    public Basket(double totalPrice, Customer customer) {
         this.totalPrice = totalPrice;
         this.customer = customer;
     }
@@ -17,11 +17,11 @@ public class Basket {
         this.totalPrice = totalPrice;
     }
 
-    public Shop.Customer getCustomer() {
+    public Customer getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Shop.Customer customer) {
+    public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
