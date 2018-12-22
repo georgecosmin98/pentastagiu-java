@@ -29,16 +29,15 @@ public class Board {
             if (m.user.equals(user)) {
                 System.out.println(m);
                 userExist = true;
-            }}
-            if(userExist==false)
+            }
+        }
+        if (userExist == false)
             System.out.println("Nu a fost gasit userul in baza de date!");
 
     }
 
     @Override
     public String toString() {
-        return "Board{" +
-                "messageList=" + messageList +
-                '}';
+        return "Board{" + "messageList=" + messageList + '}';
     }
 }
