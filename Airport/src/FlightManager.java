@@ -56,4 +56,83 @@ public class FlightManager {
         for (User u : userList)
             System.out.println(u);
     }
+
+    public void addUserToFlight(Flight flight, User user) {
+        flight.addUserToFlight(user);
+        addUser(user);
+    }
+    //what flights did a user joined
+
+    public void readFlightForUser(User user) {
+        flightList
+                .stream()
+                .filter(p -> p.checkUserList(user))
+                .forEach(flight -> System.out.println(flight.getName() + " " + flight.getDestination() + " " + flight.getStatus()));
+
+    }
+
+    //How many flights did a user joined
+    public void readNumberOfFlightDidUser(User user) {
+        long numberOfFlight = flightList
+                .stream()
+                .filter(p -> p.checkUserList(user))
+                .count();
+
+        System.out.println(user.getName() + " registered to: " + numberOfFlight + " flights");
+    }
+
+    // What destinations did a user visited
+    public void readDestinationVisitedByUser(User user) {
+        flightList
+                .stream()
+                .filter(p -> p.checkUserList(user))
+                .filter(p -> p.getStatus().equals(Flight.StatusEnum.FINISHED))
+                .forEach(flight -> System.out.println(flight.getDestination()));
+    }
+
+    //How many destinations did a user visited
+
+    public void readNumberOfDestination(User user) {
+        long numberOfDestination = flightList
+                .stream()
+                .filter(p -> p.checkUserList(user))
+                .filter(p -> p.getStatus().equals(Flight.StatusEnum.FINISHED))
+                .count();
+
+        System.out.println(user.getName() + " did: " + numberOfDestination + " destinations.");
+    }
+
+    public void readFlightScheduled() {
+        flightList
+                .stream()
+                .filter(p -> p.getStatus().equals(Flight.StatusEnum.SCHEDULED))
+                .forEach(flight -> System.out.println(flight));
+    }
+
+    public void readNumberOfFlightScheduled() {
+        long numberOfFlight = flightList
+                .stream()
+                .filter(p -> p.getStatus().equals(Flight.StatusEnum.SCHEDULED))
+                .count();
+
+        System.out.println("Number of flight scheduled: " + numberOfFlight);
+    }
+
+    public void readFlightLanded()
+    {
+        flightList
+                .stream()
+                .filter(p -> p.getStatus().equals(Flight.StatusEnum.FINISHED))
+                .forEach(flight -> System.out.println(flight));
+    }
+
+    public void readNumberOfFlightLanded()
+    {
+        long numberOfFlight = flightList
+                .stream()
+                .filter(p->p.getStatus().equals(Flight.StatusEnum.FINISHED))
+                .count();
+
+        System.out.println("Number of flight already landed is : " + numberOfFlight);
+    }
 }

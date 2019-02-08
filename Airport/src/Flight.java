@@ -10,7 +10,7 @@ public class Flight {
     private int flightDuration;
     private int maxUserCapacity;
     private StatusEnum status;
-    private List<User> userList=new ArrayList<>();
+    private List<User> userList = new ArrayList<>();
 
     enum StatusEnum {SCHEDULED, CANCELED, FINISHED;}
 
@@ -19,7 +19,7 @@ public class Flight {
         this.name = name;
         this.destination = destination;
         this.departureDate = departureDate;
-        this.flightDuration = flightDuration * 3600;
+        this.flightDuration = flightDuration;
         this.maxUserCapacity = maxUserCapacity;
         this.status = status;
     }
@@ -55,14 +55,46 @@ public class Flight {
         }
     }
 
-    public void readUserFromFlight()
-    {
-        for(User u : userList)
+    public void readUserFromFlight() {
+        for (User u : userList)
             System.out.println(u);
+    }
+
+    public boolean checkUserList(User user) {
+        for (User u : userList) {
+            if (u.getName().equals(user.getName()))
+                return true;
+
+        }
+        return false;
     }
 
     public String getName() {
         return name;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public Date getDepartureDate() {
+        return departureDate;
+    }
+
+    public int getFlightDuration() {
+        return flightDuration;
+    }
+
+    public int getMaxUserCapacity() {
+        return maxUserCapacity;
+    }
+
+    public StatusEnum getStatus() {
+        return status;
+    }
+
+    public List<User> getUserList() {
+        return userList;
     }
 
     @Override
