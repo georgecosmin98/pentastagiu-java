@@ -4,12 +4,14 @@ import java.util.List;
 
 public class FlightManager {
     private List<Flight> flightList = new ArrayList();
+    private List<User> userList = new ArrayList();
 
     // Flight Methods
+
     public void addFlight(Flight flight) {
         for (Flight f : flightList) {
             if (flight.getName().equals(f.getName())) {
-                System.out.println("This flight allready exists");
+                System.out.println("This flight already exists");
                 return;
             }
         }
@@ -38,5 +40,20 @@ public class FlightManager {
             System.out.println(f);
     }
 
+    //User methods
 
+    public void addUser(User user) {
+        for (User u : userList) {
+            if (user.getName().equals(u.getName())) {
+                System.out.println("The user is already on the list");
+                return;
+            }
+        }
+        userList.add(user);
+    }
+
+    public void readUser() {
+        for (User u : userList)
+            System.out.println(u);
+    }
 }

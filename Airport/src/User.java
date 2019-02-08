@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class User {
@@ -9,6 +10,11 @@ public class User {
         this.fname = fname;
         this.lname = lname;
         this.birthDate = birthDate;
+    }
+
+
+    public String getName(){
+        return fname + " " + lname;
     }
 
     @Override
