@@ -4,7 +4,7 @@ public class Airport {
     public static void main(String[] args) {
         Flight f1 = new Flight("F-100", "Milano", new Date(2019, 10, 19, 17, 30), 13800, 32, Flight.StatusEnum.SCHEDULED);
         Flight f2 = new Flight("F-101", "New York", new Date(2019, 10, 19, 14, 45), 48000, 32, Flight.StatusEnum.SCHEDULED);
-        Flight f3 = new Flight("F-112", "Munchen", new Date(2019, 10, 19, 9, 0), 12000, 32, Flight.StatusEnum.SCHEDULED);
+        Flight f3 = new Flight("F-112", "Munchen", new Date(2019, 10, 19, 9, 0), 12000, 32, Flight.StatusEnum.CANCELED);
         Flight f4 = new Flight("F-122", "Madrid", new Date(2019, 10, 20, 9, 50), 14800, 48, Flight.StatusEnum.SCHEDULED);
         Flight f5 = new Flight("P-901", "Paris", new Date(2019, 10, 20, 12, 20), 10800, 4, Flight.StatusEnum.SCHEDULED);
 

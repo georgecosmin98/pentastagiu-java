@@ -1,3 +1,5 @@
+import sun.nio.ch.FileKey;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -138,6 +140,7 @@ public class FlightManager {
     public void updateFlightStatus(Date date) {
         flightList
                 .stream()
+                .filter(p -> p.getStatus().equals(Flight.StatusEnum.SCHEDULED))
                 .filter(p -> p.getArrivalDate().before(date))
                 .forEach(flight -> flight.setStatus(Flight.StatusEnum.FINISHED));
     }
