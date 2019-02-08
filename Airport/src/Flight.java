@@ -7,7 +7,6 @@ public class Flight {
    private int flightDuration;
    private  int maxUserCapacity;
    private StatusEnum status;
-
     enum StatusEnum {SCHEDULED, CANCELED, FINISHED;}
 
 
@@ -20,6 +19,10 @@ public class Flight {
         this.status = status;
     }
 
+
+    public String getName() {
+        return name;
+    }
 
     @Override
     public String toString() {
