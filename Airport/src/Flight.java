@@ -97,6 +97,15 @@ public class Flight {
         return userList;
     }
 
+    public void setStatus(StatusEnum status) {
+        this.status = status;
+    }
+
+    public Date getArrivalDate() {
+        Date d = new Date(this.departureDate.getTime() + flightDuration * 1000);
+        return new Date(this.departureDate.getTime() + flightDuration * 1000);
+    }
+
     @Override
     public String toString() {
         return "Flight{" +

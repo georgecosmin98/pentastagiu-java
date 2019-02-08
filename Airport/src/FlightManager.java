@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -118,21 +119,26 @@ public class FlightManager {
         System.out.println("Number of flight scheduled: " + numberOfFlight);
     }
 
-    public void readFlightLanded()
-    {
+    public void readFlightLanded() {
         flightList
                 .stream()
                 .filter(p -> p.getStatus().equals(Flight.StatusEnum.FINISHED))
                 .forEach(flight -> System.out.println(flight));
     }
 
-    public void readNumberOfFlightLanded()
-    {
+    public void readNumberOfFlightLanded() {
         long numberOfFlight = flightList
                 .stream()
-                .filter(p->p.getStatus().equals(Flight.StatusEnum.FINISHED))
+                .filter(p -> p.getStatus().equals(Flight.StatusEnum.FINISHED))
                 .count();
 
         System.out.println("Number of flight already landed is : " + numberOfFlight);
+    }
+
+    public void updateFlightStatus(Date date) {
+        flightList
+                .stream()
+                .filter(p -> p.getArrivalDate().before(date))
+                .forEach(flight -> flight.setStatus(Flight.StatusEnum.FINISHED));
     }
 }
