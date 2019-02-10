@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.1.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+    <!--    <bean name="user" class="com.pentalog.User" scope="prototype"/>
+        <bean name="flight" class="com.pentalog.Flight" scope="prototype"/>-->
+
+    <bean name="user" class="User" scope="prototype">
+        <constructor-arg index="0" value="Jeff" />
+        <constructor-arg index="1" value="Williams" />
+        <constructor-arg index="2" value="1998/07/03"/>
+    </bean>
+
+    <bean name="flight" class="Flight" scope="prototype">
+        <constructor-arg index="0" value="F-112" />
+        <constructor-arg index="1" value="Milano" />
+        <constructor-arg index="2" value="2019/02/10 17:30"/>
+        <constructor-arg index="3" value="13800"/>
+        <constructor-arg index="4" value="32"/>
+    </bean>
+
+
+    <bean name="flightManager" class="FlightManager" />
+
+</beans>
