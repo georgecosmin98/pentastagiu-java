@@ -12,7 +12,7 @@ public class Airport {
 
     public static void main(String[] args) {
 
-        ApplicationContext contex =  new FileSystemXmlApplicationContext("D:\\AirportMaven\\src\\main\\resources\\airport-application-context.xml");
+        ApplicationContext contex =  new FileSystemXmlApplicationContext("D:\\AirportHibernate\\src\\main\\resources\\airport-application-context.xml");
 
         FlightServiceImpl flightManager = (FlightServiceImpl) contex.getBean(FlightServiceImpl.class);
 

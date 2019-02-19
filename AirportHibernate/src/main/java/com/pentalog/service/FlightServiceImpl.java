@@ -17,23 +17,13 @@ public class FlightServiceImpl {
     @Resource
     private FlightRepositoryImpl flightRepository;
 
-    @Resource
-    private UserRepositoryImpl userRepository;
 
     public FlightEntity createFlight(String flightName, String destination, String departureDate, String flightDuration, int maxUsercapacity) {
         FlightEntity newFlight = new FlightEntity(flightName,destination,departureDate,flightDuration,maxUsercapacity);
         return flightRepository.create(newFlight);
     }
 
-    public UserEntity createUser(String fname, String lname, String birthDate) {
-        UserEntity userEntity = new UserEntity(fname, lname, birthDate);
-        return userRepository.create(userEntity);
-    }
 
-
-    public UserRepository getUserRepository() {
-        return userRepository;
-    }
 
     public FlightRepository getFlightRepository(){
         return flightRepository;
