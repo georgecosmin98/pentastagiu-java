@@ -31,4 +31,14 @@ public class UserRepositoryImpl implements UserRepository {
         Query query=this.entityManager.createQuery("select usr from UserEntity usr");
         System.out.println((UserEntity)query.getSingleResult());
     }
+
+    @Override
+    public void deleteUser(String name) {
+
+
+        Query query = this.entityManager.createQuery("select usr from UserEntity usr where usr.name = :name");
+        query.setParameter("name", name);
+        entityManager.remove(query.getSingleResult());
+
+    }
 }

@@ -20,6 +20,9 @@ public class UserServiceImpl {
         return userRepository.create(userEntity);
     }
 
+    public void deleteUser(String name) {
+        userRepository.deleteUser(name);
+    }
 
     public UserRepository getUserRepository() {
         return userRepository;

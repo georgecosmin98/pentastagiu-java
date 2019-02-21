@@ -1,10 +1,10 @@
 package com.pentalog.repository.api;
 
 import com.pentalog.model.FlightEntity;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Repository;
 
-@Service
+
+@Repository
 public interface FlightRepository {
 
     FlightEntity create(FlightEntity flightToCreate);

@@ -1,9 +1,5 @@
 package com.pentalog;
 
-import com.pentalog.model.FlightEntity;
-import com.pentalog.repository.FlightRepositoryImpl;
-import com.pentalog.repository.UserRepositoryImpl;
-import com.pentalog.repository.api.FlightRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import com.pentalog.service.FlightServiceImpl;
@@ -16,10 +12,8 @@ public class Airport {
 
         FlightServiceImpl flightManager = (FlightServiceImpl) contex.getBean(FlightServiceImpl.class);
 
-        FlightRepositoryImpl flightRepository = contex.getBean(FlightRepositoryImpl.class);
-
-        flightRepository.readFlight();
-        flightRepository.deleteFlight("F112");
-        flightRepository.readFlight();
+        flightManager.createFlight("F112","Barcelona","29/10/2019","3200",32);
+        flightManager.getFlightRepository().readFlight();
+        flightManager.deleteFlight("F112");
     }
 }

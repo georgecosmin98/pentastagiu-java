@@ -9,4 +9,5 @@ public interface UserRepository {
 UserEntity create (UserEntity userToCreate);
 void save(UserEntity u1);
 void readUser();
+void deleteUser(String name);
 }
