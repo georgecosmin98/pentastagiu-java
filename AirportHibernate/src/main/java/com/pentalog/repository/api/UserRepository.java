@@ -10,4 +10,5 @@ UserEntity create (UserEntity userToCreate);
 void save(UserEntity u1);
 void readUser();
 void deleteUser(String name);
+UserEntity searchUser(String fname);
 }

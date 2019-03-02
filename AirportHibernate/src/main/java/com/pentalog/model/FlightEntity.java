@@ -1,9 +1,8 @@
 package com.pentalog.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import com.pentalog.FlightStatus;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -26,6 +25,9 @@ public class FlightEntity extends AbstractBaseEntity {
     @Column(name = "maxUserCapacity")
     private int maxUserCapacity;
 
+    @Enumerated
+    @Column(name = "status")
+    private FlightStatus status;
 
     @ManyToMany(targetEntity = UserEntity.class)
     private List<UserEntity> userList = new ArrayList<>();
@@ -34,45 +36,14 @@ public class FlightEntity extends AbstractBaseEntity {
         // Default constructor
     }
 
-    public FlightEntity(String name, String destination, String departureDate, String flightDuration, int maxUserCapacity) {
+    public FlightEntity(String name, String destination, String departureDate, String flightDuration, int maxUserCapacity, FlightStatus status) {
         this.name = name;
         this.destination = destination;
         this.departureDate = departureDate;
         this.flightDuration = flightDuration;
         this.maxUserCapacity = maxUserCapacity;
+        this.status = status;
     }
-
-    public void addUserToFlight(UserEntity user) {
-        if (userList.size() >= maxUserCapacity) {
-            System.out.println("Sorry! The plane has reached it's maximum transport capacity!");
-            return;
-        }
-        for (UserEntity u : userList) {
-            if (u.getName().equals(user.getName())) {
-                System.out.println("The user is already on the list!");
-                return;
-            }
-        }
-
-        userList.add(user);
-    }
-
-    public void deleteUserFromFlight(UserEntity user) {
-        if (userList.size() == 0) {
-            System.out.println("Error! \nUser list is empty!");
-            return;
-        }
-
-        Iterator<UserEntity> userIterator = userList.iterator();
-        while (userIterator.hasNext()) {
-            UserEntity u = userIterator.next();
-            if (u.getName().equals(user.getName())) {
-                userIterator.remove();
-                return;
-            }
-        }
-    }
-
 
     public String getName() {
         return name;
@@ -122,6 +93,14 @@ public class FlightEntity extends AbstractBaseEntity {
         this.userList = passangers;
     }
 
+    public FlightStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(FlightStatus status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "FlightEntity{" +
@@ -129,7 +108,8 @@ public class FlightEntity extends AbstractBaseEntity {
                 ", destination='" + destination + '\'' +
                 ", departureDate='" + departureDate + '\'' +
                 ", flightDuration='" + flightDuration + '\'' +
-                ", maxUserCapacity='" + maxUserCapacity;
+                ", maxUserCapacity=" + maxUserCapacity +
+                ", status=" + status;
     }
 }
 

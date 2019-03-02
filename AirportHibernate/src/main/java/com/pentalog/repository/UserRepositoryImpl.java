@@ -26,10 +26,9 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public void readUser()
-    {
-        Query query=this.entityManager.createQuery("select usr from UserEntity usr");
-        System.out.println((UserEntity)query.getSingleResult());
+    public void readUser() {
+        Query query = this.entityManager.createQuery("select usr from UserEntity usr");
+        System.out.println((UserEntity) query.getSingleResult());
     }
 
     @Override
@@ -40,5 +39,12 @@ public class UserRepositoryImpl implements UserRepository {
         query.setParameter("name", name);
         entityManager.remove(query.getSingleResult());
 
+    }
+
+    @Override
+    public UserEntity searchUser(String fname) {
+        Query query = this.entityManager.createQuery("select u1 from UserEntity u1 where fname=:fname");
+        query.setParameter("fname", fname);
+        return (UserEntity) query.getSingleResult();
     }
 }
