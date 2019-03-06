@@ -28,6 +28,7 @@ public class FlightRepositoryImpl implements FlightRepository {
         System.out.println((FlightEntity) query.getSingleResult());
     }
 
+    @Override
     public FlightEntity searchFlight(String name){
         Query query = this.entityManager.createQuery("select f1 from FlightEntity f1 where flightName=:name");
         query.setParameter("name",name);

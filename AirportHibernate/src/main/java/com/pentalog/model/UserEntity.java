@@ -3,6 +3,7 @@ package com.pentalog.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "t_user")
@@ -15,14 +16,14 @@ public class UserEntity extends AbstractBaseEntity {
     private String lname;
 
     @Column(name = "birthdate")
-    private String birthdate;
+    private LocalDate birthdate;
 
     public UserEntity() {
         // Default empty constructor
     }
 
 
-    public UserEntity(String fname, String lname, String birthdate) {
+    public UserEntity(String fname, String lname, LocalDate birthdate) {
         this.fname = fname;
         this.lname = lname;
         this.birthdate = birthdate;
@@ -48,11 +49,11 @@ public class UserEntity extends AbstractBaseEntity {
         this.lname = lname;
     }
 
-    public String getBirthdate() {
+    public LocalDate getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(String birthdate) {
+    public void setBirthdate(LocalDate birthdate) {
         this.birthdate = birthdate;
     }
 

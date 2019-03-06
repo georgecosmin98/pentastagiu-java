@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.time.LocalDate;
 
 @Service
 @Transactional
@@ -15,7 +16,7 @@ public class UserServiceImpl {
     @Resource
     private UserRepositoryImpl userRepository;
 
-    public UserEntity createUser(String fname, String lname, String birthDate) {
+    public UserEntity createUser(String fname, String lname, LocalDate birthDate) {
         UserEntity userEntity = new UserEntity(fname, lname, birthDate);
         return userRepository.create(userEntity);
     }

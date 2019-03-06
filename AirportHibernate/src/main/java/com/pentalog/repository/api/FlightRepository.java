@@ -11,5 +11,5 @@ public interface FlightRepository {
     void save(FlightEntity fl);
     void readFlight();
     void deleteFlight(String name);
-
+    FlightEntity searchFlight(String name);
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.Date;
 
 @Service
 @Transactional
@@ -18,7 +19,7 @@ public class FlightServiceImpl {
     private FlightRepositoryImpl flightRepository;
 
 
-    public FlightEntity createFlight(String flightName, String destination, String departureDate, String flightDuration, int maxUsercapacity, FlightStatus status) {
+    public FlightEntity createFlight(String flightName, String destination, Date departureDate, int flightDuration, int maxUsercapacity, FlightStatus status) {
         FlightEntity newFlight = new FlightEntity(flightName, destination, departureDate, flightDuration, maxUsercapacity, status);
         return flightRepository.create(newFlight);
     }

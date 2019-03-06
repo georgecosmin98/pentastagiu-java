@@ -4,6 +4,7 @@ import com.pentalog.FlightStatus;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -17,10 +18,10 @@ public class FlightEntity extends AbstractBaseEntity {
     private String destination;
 
     @Column(name = "departureDate")
-    private String departureDate;
+    private Date departureDate;
 
     @Column(name = "flightDuration")
-    private String flightDuration;
+    private int flightDuration;
 
     @Column(name = "maxUserCapacity")
     private int maxUserCapacity;
@@ -29,14 +30,14 @@ public class FlightEntity extends AbstractBaseEntity {
     @Column(name = "status")
     private FlightStatus status;
 
-    @ManyToMany(targetEntity = UserEntity.class)
+    @ManyToMany(targetEntity = UserEntity.class, fetch=FetchType.EAGER)
     private List<UserEntity> userList = new ArrayList<>();
 
     public FlightEntity() {
         // Default constructor
     }
 
-    public FlightEntity(String name, String destination, String departureDate, String flightDuration, int maxUserCapacity, FlightStatus status) {
+    public FlightEntity(String name, String destination, Date departureDate, int flightDuration, int maxUserCapacity, FlightStatus status) {
         this.name = name;
         this.destination = destination;
         this.departureDate = departureDate;
@@ -61,19 +62,19 @@ public class FlightEntity extends AbstractBaseEntity {
         this.destination = destination;
     }
 
-    public String getDepartureDate() {
+    public Date getDepartureDate() {
         return departureDate;
     }
 
-    public void setDepartureDate(String departureDate) {
+    public void setDepartureDate(Date departureDate) {
         this.departureDate = departureDate;
     }
 
-    public String getFlightDuration() {
+    public int getFlightDuration() {
         return flightDuration;
     }
 
-    public void setFlightDuration(String flightDuration) {
+    public void setFlightDuration(int flightDuration) {
         this.flightDuration = flightDuration;
     }
 
